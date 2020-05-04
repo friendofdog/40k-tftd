@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -eu -o pipefail
+
+basedir=$(cd "$(dirname "$0")" && pwd -P)
+
+cd "$basedir"
+. ./activate
+pytest -q "$@"
+echo OK
