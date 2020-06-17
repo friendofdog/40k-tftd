@@ -26,12 +26,13 @@ def get_random_str_from_list(list):
     i = randrange(0, max)
     return list[i]
 
-strings = get_strings_from_urls([
-    'https://wh40k.lexicanum.com/wiki/Thought_for_the_day_(A_-_H)',
-    'https://wh40k.lexicanum.com/wiki/Thought_for_the_day_(I_-_P)',
-    'https://wh40k.lexicanum.com/wiki/Thought_for_the_day_(Q_-_Z)'
-])
+if __name__ == '__main__':
+    strings = get_strings_from_urls([
+        'https://wh40k.lexicanum.com/wiki/Thought_for_the_day_(A_-_H)',
+        'https://wh40k.lexicanum.com/wiki/Thought_for_the_day_(I_-_P)',
+        'https://wh40k.lexicanum.com/wiki/Thought_for_the_day_(Q_-_Z)'
+    ])
 
-random_string = get_random_str_from_list(strings)
+    random_string = get_random_str_from_list(strings)
 
-print(random_string)
+    print(random_string)
