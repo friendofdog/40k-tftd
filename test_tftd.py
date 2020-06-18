@@ -1,5 +1,5 @@
 import pytest
-from tftd import get_strings_from_urls, get_random_str_from_list
+from tftd import get_strings_from_urls, get_random_str_from_list, fix_punctuation
 
 def test_get_strings_from_urls():
     strings = get_strings_from_urls([
@@ -18,4 +18,13 @@ def test_get_random_str_from_list():
     string = get_random_str_from_list(list)
     assert type(string) is str
     assert string in list
+
+def test_fix_punctuation():
+    acceptable = ['.', '?', '!']
+    bad_string = 'Trying to understand weakens the will to act'
+    good_string = 'Trying to understand weakens the will to act.'
+    fix = fix_punctuation(bad_string)
+    nofix = fix_punctuation(good_string)
+    assert fix[-1] in acceptable
+    assert nofix[-1] in acceptable
 

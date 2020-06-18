@@ -26,6 +26,13 @@ def get_random_str_from_list(list):
     i = randrange(0, max)
     return list[i]
 
+def fix_punctuation(string):
+    punc = ['.', '?', '!']
+    last_char = string[-1]
+    if last_char not in punc:
+        string = string + '.'
+    return string
+
 if __name__ == '__main__':
     strings = get_strings_from_urls([
         'https://wh40k.lexicanum.com/wiki/Thought_for_the_day_(A_-_H)',
@@ -34,5 +41,6 @@ if __name__ == '__main__':
     ])
 
     random_string = get_random_str_from_list(strings)
+    formatted_string = fix_punctuation(random_string)
 
-    print(random_string)
+    print(formatted_string)
